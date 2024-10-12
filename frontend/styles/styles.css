@@ -26,6 +26,11 @@ header {
     margin: 0 auto;
 }
 
+a{
+    text-decoration: none;
+    color: #ffffff;
+}
+
 h1 {
     font-size: 24px;
     color: #333;
@@ -149,6 +154,7 @@ button {
 button:hover {
     transform: translateY(-3px);
     box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15); 
+    background-color: #B39F84;
 }
 
 button:active {
