@@ -100,7 +100,7 @@ To use the model, modify the following lines in the script to point to your data
 
 1. **Load the Model**:
    ```python
-   model = tf.keras.models.load_model('skin_disease_classifier_v2.h5')
+   model = tf.keras.models.load_model('skin_disease_classifier_v2.keras')
    ```
 
 2. **Prediction on Custom Images**:
