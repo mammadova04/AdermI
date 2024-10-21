@@ -174,10 +174,25 @@ function displayResult() {
     const selectedSkinTypes = Object.keys(skinTypes).filter(type => skinTypes[type]);
 
     let result = 'Your skin type is: ';
-    result += selectedSkinTypes.includes("Sensitive") ? 'Sensitive ' : '';
     
-    if (selectedSkinTypes.length > 1) {
-        result += 'with a primary skin type of ';
+    if (selectedSkinTypes.includes("Sensitive")) {
+        result += 'Sensitive ';
+        if (selectedSkinTypes.length > 1) {
+            result += 'with a primary skin type of ';
+            if (skinTypes["Oily"]) {
+                result += "Oily.";
+            } else if (skinTypes["Combination"]) {
+                result += "Combination.";
+            } else if (skinTypes["Dry"]) {
+                result += "Dry.";
+            } else {
+                result += "Normal.";
+            }
+        } else {
+            result += 'Sensitive.';
+        }
+    } else {
+        // If not sensitive, just display the main skin type
         if (skinTypes["Oily"]) {
             result += "Oily.";
         } else if (skinTypes["Combination"]) {
@@ -187,13 +202,12 @@ function displayResult() {
         } else {
             result += "Normal.";
         }
-    } else {
-        result += selectedSkinTypes.find(type => type !== "Sensitive") + ".";
     }
 
     document.getElementById('result').innerText = result;
     document.getElementById('resultContainer').style.display = 'block'; // Show results
 }
+
 
 // Display the first question
 displayQuestion();
