@@ -7,7 +7,7 @@ import os
 app = Flask(__name__)
 
 # Path to your trained model (update this with the correct file path)
-model_path = 'skin_disease_classifier_cnn_v3.keras'
+model_path = 'skin_disease_classifier_v2.keras'
 
 # Load the model
 try:
