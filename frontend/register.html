@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,39 +7,46 @@
     <link rel="stylesheet" href="styles/register.css">
     <title>Modern Login Page | AsmrProg</title>
 </head>
-
 <body>
 
     <div class="container" id="container">
+        <!-- Sign Up Form -->
         <div class="form-container sign-up">
-            <form>
+            <form id="signup-form">
                 <h1>Create Account</h1>
-                <input type="text" placeholder="Name">
-                <input type="email" placeholder="Email">
-                <input type="password" placeholder="Password">
-                <button>Sign Up</button>
+                <input type="text" id="signup-name" placeholder="Name" required>
+                <input type="email" id="signup-email" placeholder="Email" required>
+                <input type="password" id="signup-password" placeholder="Password" required>
+                <button type="submit">Sign Up</button>
             </form>
         </div>
+
+        <!-- Sign In Form -->
         <div class="form-container sign-in">
-            <form>
+            <form id="signin-form">
                 <h1>Sign In</h1>
-                <input type="email" placeholder="Email">
-                <input type="password" placeholder="Password">
+                <input type="email" id="signin-email" placeholder="Email" required>
+                <input type="password" id="signin-password" placeholder="Password" required>
                 <a href="#">Forget Your Password?</a>
-                <button>Sign In</button>
+                <button type="submit">Sign In</button>
             </form>
         </div>
+
+        <!-- Toggle Panels -->
         <div class="toggle-container">
             <div class="toggle">
+                <!-- Panel for Sign In -->
                 <div class="toggle-panel toggle-left">
                     <h1>Welcome Back!</h1>
-                    <p>Enter your personal details to use all of site features</p>
-                    <button class="hidden" id="login">Sign In</button>
+                    <p>Enter your personal details to use all of the site features</p>
+                    <button id="login">Sign In</button>
                 </div>
+
+                <!-- Panel for Sign Up -->
                 <div class="toggle-panel toggle-right">
                     <h1>Hello, Friend!</h1>
-                    <p>Register with your personal details to use all of site features</p>
-                    <button class="hidden" id="register">Sign Up</button>
+                    <p>Register with your personal details to use all of the site features</p>
+                    <button id="register">Sign Up</button>
                 </div>
             </div>
         </div>
@@ -48,5 +54,4 @@
 
     <script src="script.js"></script>
 </body>
-
 </html>
