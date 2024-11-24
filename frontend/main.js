@@ -4,6 +4,12 @@ document.addEventListener('DOMContentLoaded', function () {
     const usernameNavItem = document.getElementById('usernameNavItem');
     const usernameDisplay = document.getElementById('usernameDisplay');
     const ctaSection = document.querySelector('.cta-section');
+    const burgerMenu = document.getElementById("burgerMenu");
+    const navLinks = document.getElementById("navLinks");
+    
+    burgerMenu.addEventListener("click", () => {
+      navLinks.classList.toggle("show");
+    });
     
 
     // Check if user is logged in (using local storage to simulate a logged-in state)

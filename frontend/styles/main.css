@@ -286,41 +286,228 @@ button:active {
     margin: 10px;
 }
 
-/* FOR CHAT TEMPLATE */
-
-.chat-container {
-    padding: 10px;
-    max-width: 400px;
-    margin-top: 10px;
-}
-
-.chat-box {
-    display: flex;
-    flex-direction: column;
-    height: 300px;
-}
-
-#chatOutput {
-    flex: 1;
-    overflow-y: auto;
-    border-radius: 40px;
-    border: 1px solid #ddd;
-    padding: 10px;
-    margin-bottom: 20px;
-    background-color: #f9f9f9;
-}
-
-#chatInput {
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 40px;
-    margin-bottom: 20px;
-}
-
-
-#sendMessageButton {
-    font-size: 20px;
-    width: 330px;
-    background-color: white;
-}
-
+/* General Styling for Responsiveness */
+@media (max-width: 1200px) {
+    /* Header */
+    header .container {
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+  
+    h1 {
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+  
+    nav ul {
+      gap: 15px;
+    }
+  
+    /* Hero Section */
+    .hero {
+        background: linear-gradient(180deg, #c2a57e, #e5d4b7);
+        padding: 20px;
+        height: auto;
+        border-radius: 100px;
+    }
+  
+    .content {
+      flex-direction: column;
+    }
+  
+    .text-section {
+      padding-left: 0;
+      margin: 70px 0;
+      text-align: center;
+    }
+  
+    .text-section h2 {
+      font-size: 30px;
+    }
+  
+    .text-section p {
+      font-size: 20px;
+    }
+  
+    /* Buttons */
+    .buttons {
+      gap: 15px;
+      margin-top: 20px;
+    }
+  
+    button {
+      width: 180px;
+      height: 60px;
+      font-size: 18px;
+    }
+  
+    /* Services Section */
+    .services {
+      flex-wrap: wrap;
+      gap: 20px;
+      padding: 20px;
+      justify-content: center;
+    }
+  
+    .service-card {
+      width: 45%;
+      padding: 20px;
+    }
+  
+    .service-card p {
+      font-size: 14px;
+    }
+  
+    .cta-button {
+      padding: 10px 20px;
+      font-size: 14px;
+    }
+  
+    /* Footer */
+    .footer {
+      padding: 20px 10px;
+      font-size: 14px;
+    }
+  
+    .footer .social-icons {
+      justify-content: center;
+    }
+  
+    .icon_img {
+      width: 25px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    /* Header */
+    header {
+      padding: 10px 0;
+    }
+  
+    nav ul {
+      display: none; /* Hide menu on smaller screens */
+      flex-direction: column;
+      position: fixed;
+      top: 0;
+      right: 0;
+      height: 100%;
+      width: 250px;
+      background: white;
+      padding-top: 50px;
+      box-shadow: -4px 0 6px rgba(0, 0, 0, 0.1);
+    }
+  
+    nav ul.show {
+      display: flex;
+    }
+  
+    .burger-menu {
+      display: flex;
+    }
+  
+    /* Hero Section */
+    .hero {
+      border-radius: 100px;
+      padding: 20px;
+      background: linear-gradient(180deg, #c2a57e, #e5d4b7);
+    }
+  
+    .text-section {
+        margin: 70px auto;
+    }
+  
+    .text-section h2 {
+      font-size: 24px;
+    }
+  
+    .text-section p {
+      font-size: 16px;
+    }
+  
+    .buttons {
+      flex-direction: column;
+    }
+  
+    button {
+      width: 100%;
+      font-size: 16px;
+    }
+  
+    /* Services Section */
+    .services {
+      flex-direction: column;
+      gap: 20px;
+    }
+  
+    .service-card {
+      width: 100%;
+      padding: 5px;
+    }
+  
+    .cta-button {
+      width: 30%;
+      margin: 20px;
+    }
+  
+    /* Footer */
+    .footer {
+        width: 100%;
+        font-size: 12px;
+    }
+  
+    .icon_img {
+      width: 20px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    /* Header */
+    h1 {
+      font-size: 18px;
+    }
+  
+    nav ul li {
+      padding: 10px;
+    }
+  
+    /* Hero Section */
+    .text-section h2 {
+      font-size: 20px;
+    }
+  
+    .text-section p {
+      font-size: 14px;
+    }
+  
+    .buttons {
+      gap: 10px;
+    }
+  
+    button {
+      font-size: 14px;
+    }
+  
+    /* Services Section */
+    .services {
+      padding: 10px;
+    }
+  
+    .service-card {
+      padding: 15px;
+    }
+  
+    .cta-button {
+      font-size: 12px;
+      padding: 8px;
+    }
+  
+    /* Footer */
+    .footer {
+      font-size: 10px;
+    }
+  
+    .icon_img {
+      width: 18px;
+    }
+  }
+  
