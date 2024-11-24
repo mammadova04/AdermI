@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/skin.css">
+    <title>Skin Type Quiz</title>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <h1>Aderml</h1>
+            <nav>
+                <!-- Burger Menu -->
+                <div class="burger-menu" id="burgerMenu">
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                </div>
+                <!-- Navigation Links -->
+                <ul id="navLinks">
+                    <li><a href="main.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="skin.html">SkinTest</a></li>
+                    <li><a href="diseases.html">Diseases</a></li>
+                    <li id="loginNavItem"><a href="register.html">Log In</a></li>
+                    <li id="signupNavItem"><a href="register.html">Sign Up</a></li>
+                    <li id="usernameNavItem" style="display: none">
+                        Welcome, <span id="usernameDisplay"></span>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <div id="quizContainer">
+            <div id="questionContainer"></div>
+            <button id="nextButton">Next</button>
+            <div id="resultContainer">
+                <h2>Results:</h2>
+                <p id="result"></p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-links">
+            <a href="main.html">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="#services">Services</a>
+        </div>
+        <div class="social-icons">
+            <a href="#facebook" title="Facebook"><img class="icon_img" src="styles/images/face.png"></a>
+            <a href="#twitter" title="Twitter"><img class="icon_img" src="styles/images/twit.png"></a>
+            <a href="#instagram" title="Instagram"><img class="icon_img" src="styles/images/insta.png"></a>
+        </div>
+        <p>&copy; 2024 Your Company. All Rights Reserved.</p>
+    </footer>
+
+    <script src="skin.js"></script>
+</body>
+</html>

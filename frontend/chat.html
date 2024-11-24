@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aderml - Chat with AI</title>
+    <link rel="stylesheet" href="styles/chat.css">
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <h1>Aderml</h1>
+            <nav>
+                <!-- Burger Menu -->
+                <div class="burger-menu" id="burgerMenu">
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                </div>
+                <!-- Navigation Links -->
+                <ul id="navLinks">
+                    <li><a href="main.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="skin.html">SkinTest</a></li>
+                    <li><a href="diseases.html">Diseases</a></li>
+                    <li id="loginNavItem"><a href="register.html">Log In</a></li>
+                    <li id="signupNavItem"><a href="register.html">Sign Up</a></li>
+                    <li id="usernameNavItem" style="display: none">
+                        Welcome, <span id="usernameDisplay"></span>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Chat Section -->
+    <main class="chat-page">
+        <div class="chat-container">
+            <div id="chatbox" class="chat-box">
+                <!-- Chat messages will be displayed here -->
+            </div>
+            <div class="input-container">
+                <input type="text" id="user-input" class="chat-input" placeholder="Type your message...">
+                <button class="cta-button" onclick="sendMessage()">Send</button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-links">
+            <a href="main.html">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="services.html">Services</a>
+        </div>
+        <div class="social-icons">
+            <a href="#facebook" title="Facebook">
+                <i><img class="icon_img" src="styles/images/face.png" alt="Facebook"></i>
+            </a>
+            <a href="#twitter" title="Twitter">
+                <i><img class="icon_img" src="styles/images/twit.png" alt="Twitter"></i>
+            </a>
+            <a href="#instagram" title="Instagram">
+                <i><img class="icon_img" src="styles/images/insta.png" alt="Instagram"></i>
+            </a>
+        </div>
+        <p>&copy; 2024 Your Company. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        // Toggle the burger menu for mobile devices
+        const burgerMenu = document.getElementById("burgerMenu");
+        const navLinks = document.getElementById("navLinks");
+
+        burgerMenu.addEventListener("click", () => {
+            navLinks.classList.toggle("show");
+        });
+
+        // Chat functionality
+        async function sendMessage() {
+            const userInput = document.getElementById("user-input");
+            const chatbox = document.getElementById("chatbox");
+
+            const userMessage = userInput.value.trim();
+            if (!userMessage) return;
+
+            // Append user's message
+            const userMessageElement = document.createElement("p");
+            userMessageElement.innerHTML = `<strong>You:</strong> ${userMessage}`;
+            userMessageElement.classList.add("user-message");
+            chatbox.appendChild(userMessageElement);
+            userInput.value = "";
+
+            // Fetch bot reply
+            try {
+                const response = await fetch("/chat", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ message: userMessage }),
+                });
+                const data = await response.json();
+
+                const botMessageElement = document.createElement("p");
+                if (data.reply) {
+                    botMessageElement.innerHTML = `<strong>Bot:</strong> ${data.reply}`;
+                    botMessageElement.classList.add("bot-message");
+                } else {
+                    botMessageElement.innerHTML = `<strong>Error:</strong> ${data.error || "Could not fetch a response."}`;
+                }
+                chatbox.appendChild(botMessageElement);
+            } catch (error) {
+                const errorElement = document.createElement("p");
+                errorElement.innerHTML = `<strong>Error:</strong> Could not reach the server.`;
+                errorElement.classList.add("error-message");
+                chatbox.appendChild(errorElement);
+            }
+
+            // Scroll to the bottom
+            chatbox.scrollTop = chatbox.scrollHeight;
+        }
+    </script>
+</body>
+</html>

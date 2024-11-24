@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for, session, jsonify, flash
-from model import User
+from models import User
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import create_engine
 from werkzeug.security import generate_password_hash, check_password_hash

@@ -1,0 +1,275 @@
+@import url('https://fonts.googleapis.com/css2?family=Jura:wght@300..700&display=swap');
+
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Jura", sans-serif;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    background-color: #f5f5f5;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Header Styling */
+header {
+    background-color: #ffffff;
+    padding: 20px 50px;
+    font-size: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    position: relative;
+    z-index: 10;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+h1 {
+    font-size: 24px;
+    color: #333;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #B39F84;
+}
+
+/* Burger Menu */
+.burger-menu {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 100;
+}
+
+.burger-menu .line {
+    width: 25px;
+    height: 3px;
+    background-color: #333;
+    border-radius: 2px;
+}
+
+nav ul {
+    display: flex;
+}
+
+/* Burger Sidebar */
+nav ul.show {
+    position: fixed;
+    top: 0;
+    right: 0;
+    background: white;
+    width: 250px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding-top: 50px;
+    gap: 20px;
+    box-shadow: -4px 0 6px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+}
+
+nav ul.show li {
+    text-align: left;
+    padding-left: 20px;
+}
+
+/* Main Styling */
+main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Quiz Container */
+#quizContainer {
+    background: linear-gradient(135deg, #f9f2e7, #e0c7a1);
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    max-width: 600px;
+    width: 100%;
+    padding: 2rem;
+    text-align: center;
+    margin: 0 auto;
+    animation: fadeIn 0.5s ease-in-out;
+    transition: transform 0.3s ease-in-out;
+}
+
+#quizContainer:hover {
+    transform: scale(1.03);
+}
+
+/* Question Container */
+#questionContainer {
+    margin-bottom: 20px;
+}
+
+#questionContainer p {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+/* Label Styling */
+label {
+    display: block;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 10px;
+    text-align: left;
+    cursor: pointer;
+    background-color: #ffffff;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+label:hover {
+    background-color: #f9f2e7;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+input[type="radio"] {
+    margin-right: 10px;
+}
+
+/* Selected Radio Style */
+input[type="radio"]:checked + label {
+    background-color: #80deea;
+    border-color: #00796b;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Next Button Styling */
+#nextButton {
+    background-color: #00796b;
+    color: white;
+    border: none;
+    width: 120px;
+    border-radius: 30px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#nextButton:hover {
+    background-color: #004d40;
+    transform: translateY(-3px);
+}
+
+/* Results Container */
+#resultContainer {
+    display: none;
+    margin-top: 20px;
+}
+
+#resultContainer h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+#resultContainer p {
+    font-size: 1.2rem;
+    color: #00796b;
+}
+
+/* Footer Styling */
+.footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    width: 100%;
+}
+
+.footer a {
+    color: #ffffff;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+.footer a:hover {
+    color: #B39F84;
+}
+
+.footer .social-icons {
+    margin: 10px 0;
+}
+
+.footer .social-icons img {
+    width: 30px;
+    margin: 0 5px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .burger-menu {
+        display: flex;
+    }
+
+    nav ul {
+        display: none;
+    }
+
+    nav ul.show {
+        display: flex;
+    }
+
+    #quizContainer {
+        padding: 1.5rem;
+        margin-top: 1rem;
+    }
+
+    label {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    #nextButton {
+        width: 100px;
+        font-size: 0.9rem;
+    }
+
+    footer {
+        padding: 10px 0;
+    }
+}
+
+/* Fade-In Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
