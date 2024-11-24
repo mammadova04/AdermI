@@ -1,10 +1,10 @@
-from flask import Flask, request, render_template, redirect, url_for, flash
+from fastapi import FastAPI, File, UploadFile
 import tensorflow as tf
 from tensorflow.keras.preprocessing import image
 import numpy as np
 import os
-
-app = Flask(__name__)
+import shutil
+import uvicorn
 
 # Path to your trained model (update this with the correct file path)
 model_path = 'skin_disease_classifier_v2.keras'
@@ -39,24 +39,25 @@ def predict_skin_disease(img_path):
     confidence_scores = predictions[0]
     return predicted_class, confidence_scores
 
-@app.route('/', methods=['GET', 'POST'])
-def upload_file():
-    if request.method == 'POST':
-        if 'file' not in request.files:
-            return "No file part"
-        file = request.files['file']
-        if file.filename == '':
-            return "No selected file"
-        if file:
-            # Ensure the uploads directory exists
-            os.makedirs('uploads', exist_ok=True)
-            img_path = os.path.join('uploads', file.filename)
-            file.save(img_path)
-            predicted_class, confidence_scores = predict_skin_disease(img_path)
-            os.remove(img_path)  # Clean up the uploaded file
-            return render_template('result.html', predicted_class=predicted_class, confidence_scores=confidence_scores)
-    
-    return render_template('upload.html')
+from starlette.middleware.cors import CORSMiddleware
 
-if __name__ == '__main__':
-    app.run(debug=True)
+app = FastAPI()
+
+# CORS
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=['*'],
+    allow_credentials=True,
+    allow_methods=['*'],
+    allow_headers=['*'],
+)
+@app.post("/predict")
+def upload_file(file: UploadFile):
+    os.makedirs('uploads', exist_ok=True)
+    file_path = f"uploads/{file.filename}"
+    with open(file_path, "wb") as f:
+        f.write(file.file.read())
+    
+    predicted_class, confidence_scores = predict_skin_disease(file_path)
+    shutil.rmtree("uploads")
+    return {"predicted_class": predicted_class, "confidence_scores": confidence_scores.tolist()}, 200
