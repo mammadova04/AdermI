@@ -202,3 +202,107 @@ body {
 .container.active .toggle-right {
   transform: translateX(200%);
 }
+
+
+/* General responsive settings */
+@media (max-width: 768px) {
+  /* Body adjustments for smaller screens */
+  body {
+    flex-direction: column;
+    height: auto;
+    padding: 20px;
+  }
+
+  /* Adjust container layout */
+  .container {
+    width: 100%;
+    height: auto;
+    padding: 20px;
+  }
+
+  /* Forms should occupy more space */
+  .container form {
+    width: 100%;
+    height: auto;
+    margin: 20px 0;
+    padding: 20px;
+  }
+
+  /* Input and button adjustments */
+  .container input,
+  .container button {
+    width: 100%;
+    max-width: none;
+    margin: 10px 0;
+  }
+
+  /* Toggle container adjustments */
+  .toggle-container {
+    position: static;
+    width: 100%;
+    height: auto;
+    margin-top: 20px;
+    border-radius: 0;
+    transform: none;
+  }
+
+  .toggle {
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    transform: none;
+  }
+
+  .toggle-panel {
+    position: static;
+    width: 100%;
+    height: auto;
+    margin: 20px 0;
+  }
+
+  .toggle-left,
+  .toggle-right {
+    transform: none;
+  }
+
+  .container.active .toggle {
+    transform: none;
+  }
+
+  .container.active .toggle-container {
+    transform: none;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Further adjustments for very small screens */
+  body {
+    padding: 10px;
+  }
+
+  .container {
+    padding: 10px;
+  }
+
+  .container form {
+    padding: 15px;
+  }
+
+  .container button {
+    font-size: 0.9rem;
+    padding: 8px 20px;
+  }
+
+  .container input {
+    font-size: 12px;
+    padding: 8px;
+  }
+
+  .toggle-panel h1 {
+    font-size: 1.5rem;
+  }
+
+  .toggle-panel p {
+    font-size: 0.9rem;
+  }
+}

@@ -7,72 +7,46 @@
 }
 
 body {
-    background-color: #f5f5f5;
+    background-color: #ffffff;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
 }
 
-/* Header Styles */
+/* Header Styling */
 header {
-    padding: 20px 50px;
-    background-color: #ffffff;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px 0px;
+    font-size: 20px;
+    width: 100%;
+    position: relative;
+    z-index: 10;
+}
+
+.container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: relative;
 }
 
-header h1 {
+h1 {
     font-size: 24px;
     color: #333;
-    margin: 0;
 }
 
-header nav {
+nav ul {
+    list-style: none;
     display: flex;
-    align-items: center;
-}
-
-/* General Reset for Nav Links */
-header nav ul {
-    list-style: none; /* Remove the dots */
-    padding: 0; /* Remove padding */
-    margin: 0; /* Remove margin */
-    position: fixed;
-    top: 0;
-    right: -100%; /* Hidden off-screen */
-    background: white;
-    width: 250px;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    padding-top: 50px;
     gap: 20px;
-    box-shadow: -4px 0 6px rgba(0, 0, 0, 0.1);
-    z-index: 100;
-    transition: right 0.3s ease;
 }
 
-
-header nav ul.show {
-    right: 0; /* Slide in from the right */
-}
-
-header nav ul li {
-    text-align: left;
-    padding-left: 20px;
-}
-
-header nav ul li a {
+nav ul li a {
     text-decoration: none;
     color: #333;
     font-weight: bold;
     transition: color 0.3s ease;
 }
 
-header nav ul li a:hover {
+nav ul li a:hover {
     color: #B39F84;
 }
 
@@ -89,17 +63,42 @@ header nav ul li a:hover {
 }
 
 .burger-menu .line {
-    border-radius: 100px;
     width: 25px;
     height: 3px;
     background-color: #333;
+    border-radius: 2px;
+}
+
+nav ul {
+    display: flex;
+}
+
+/* Burger Sidebar */
+nav ul.show {
+    position: fixed;
+    top: 0;
+    right: 0;
+    background: white;
+    width: 250px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding-top: 50px;
+    gap: 20px;
+    box-shadow: -4px 0 6px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+}
+
+nav ul.show li {
+    text-align: left;
+    padding-left: 20px;
 }
 
 /* Chat Section */
 main {
     flex: 1;
     margin: 20px auto;
-    width: 80%;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -217,8 +216,11 @@ footer p {
     margin: 10px;
 }
 
-/* Responsive Styles */
 @media (max-width: 768px) {
+    .burger-menu {
+        display: flex;
+    }
+
     nav ul {
         display: none;
     }
@@ -227,18 +229,7 @@ footer p {
         display: flex;
     }
 
-    nav ul li {
-        text-align: center;
+    footer {
         padding: 10px 0;
-    }
-
-    nav ul li a {
-        color: white;
-        font-size: 1.2rem;
-        font-weight: bold;
-    }
-
-    .burger-menu {
-        display: flex;
     }
 }
