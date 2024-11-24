@@ -204,6 +204,19 @@ body {
 }
 
 
+#logoutButton {
+  text-decoration: none;
+  color: #B39F84;
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+#logoutButton:hover {
+  color: #333;
+  text-decoration: underline;
+}
+
+
 /* General responsive settings */
 @media (max-width: 768px) {
   /* Body adjustments for smaller screens */

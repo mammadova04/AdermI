@@ -11,14 +11,24 @@
         <div class="container">
             <h1>Aderml</h1>
             <nav>
-                <ul>
+                <!-- Burger Menu -->
+                <div class="burger-menu" id="burgerMenu">
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                </div>
+                <!-- Navigation Links -->
+                <ul id="navLinks">
                     <li><a href="main.html">Home</a></li>
                     <li><a href="about.html">About</a></li>
                     <li><a href="skin.html">SkinTest</a></li>
-                    <li><a href="#">Diseases</a></li>
-
-                    <li><a href="register.html">Log In</a></li>
-                    <li><a href="register.html">Sign Up</a></li>
+                    <li><a href="diseases.html">Diseases</a></li>
+                    <li id="loginNavItem"><a href="register.html">Log In</a></li>
+                    <li id="signupNavItem"><a href="register.html">Sign Up</a></li>
+                    <li id="usernameNavItem" style="display: none">
+                        Welcome, <span id="usernameDisplay"></span>
+                        <a href="#" id="logoutButton" style="margin-left: 20px;">Logout</a>
+                    </li>
                 </ul>
             </nav>
         </div>
@@ -88,5 +98,8 @@
         </div>
         <p>&copy; 2024 Your Company. All Rights Reserved.</p>
     </footer>
+
+    <script src="header.js"></script>
+
 </body>
 </html>
