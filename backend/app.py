@@ -1,21 +1,47 @@
 from flask import Flask, render_template, request, redirect, url_for, session, jsonify, flash
-from flask_mysqldb import MySQL
-import MySQLdb.cursors
-import MySQLdb.cursors, re, hashlib
-import bcrypt
-app = Flask(__name__)
+from model import User
+from sqlalchemy.orm import sessionmaker
+from sqlalchemy import create_engine
+from werkzeug.security import generate_password_hash, check_password_hash
+from functools import wraps
+import re
 
+
+app = Flask(__name__, template_folder="templates")
 
 app.secret_key = 'P3_yuiV90lls(hytQW45'
 
-
-app.config['MYSQL_HOST'] = 'localhost'
-app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = 'Nahid2005'
-app.config['MYSQL_DB'] = 'login'
+engine = create_engine("mysql+mysqldb://root:Nahid2005@localhost/login")
+Session = sessionmaker(bind=engine)
+session_query = Session()
 
 
-mysql = MySQL(app)
+def login_based(function):
+    @wraps(function)
+    def decorated_function(*args, **kwargs):
+        if not session.get('loggedin'):
+            flash("You need to log in to access this page.", "warning")
+            return redirect(url_for('login'))
+        return function(*args, **kwargs)
+    return decorated_function
+
+
+def role_based(required_role):
+    def decorator(function):
+        @wraps(function)
+        def decorated_function(*args, **kwargs):
+            if not session.get('loggedin') or session.get('role') != required_role:
+                flash("Only admin can access this page", "danger")
+                return redirect(url_for("main"))
+            return function(*args, **kwargs)
+        return decorated_function
+    return decorator
+
+
+@app.route('/admin')
+@role_based('admin')
+def admin():
+    return 'Hello admin'
 
 
 @app.route('/')
@@ -33,31 +59,44 @@ def disease():
     return render_template("diseases.html")
 
 
+@app.route('/skin-test')
+@login_based
+def skin_test():
+    return render_template("skin-test.html")
+    # username=session['username'] don't forget to add it
+
+
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     msg = 'You are on login page'
-    if request.method == 'POST' and 'username' in request.form and 'password' in request.form:
-        username = request.form['username']
+    if request.method == 'POST' and 'email' in request.form and 'password' in request.form:
+        email = request.form['email']
         password = request.form['password']
-        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-        cursor.execute('SELECT * FROM accounts WHERE username = %s AND password = %s', (username, password,))
-        account = cursor.fetchone()
+
+        account = session_query.query(User).filter_by(email=email).first()
         if account:
-            if bcrypt.checkpw(password.encode('utf-8'), account['password'].encode('utf-8')):
+            if check_password_hash(account.password, password):
                 session['loggedin'] = True
-                session['id'] = account['id']
-                session['username'] = account['username']
-                return jsonify('Logged in successfully!')
+                session['id'] = account.id
+                session['username'] = account.username
+                session['role'] = account.role
+                if session['role'] == 'admin':
+                    return redirect(url_for('admin'))
+                return redirect('/')
         else:
             msg = 'Incorrect username/password!'
+            flash(msg)
     return render_template('login.html', msg=msg)
 
+
+# Should add logout button (frontend)
 @app.route('/logout')
 def logout():
-   session.pop('loggedin', None)
-   session.pop('id', None)
-   session.pop('username', None)
-   return redirect(url_for('login'))
+    session.pop('loggedin', None)
+    session.pop('id', None)
+    session.pop('username', None)
+
+    return redirect(url_for('login'))
 
 
 @app.route('/signup', methods=['GET', 'POST'])
@@ -68,13 +107,10 @@ def signup():
         password = request.form['password']
         email = request.form['email']
 
-        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-        cursor.execute('SELECT * FROM accounts WHERE username = %s', (username,))
-        account = cursor.fetchone()
+        account = session_query.query(User).filter_by(username=username).first()
 
         if account:
             msg = 'Account already exists!'
-
         elif not re.match(r'[^@]+@[^@]+\.[^@]+', email):
             msg = 'Invalid email address!'
         elif not re.match(r'[A-Za-z0-9]+', username):
@@ -82,12 +118,10 @@ def signup():
         elif not username or not password or not email:
             msg = 'Please fill out the form!'
         else:
-            hash = password + app.secret_key
-            hash = hashlib.sha1(hash.encode())
-            password = hash.hexdigest()
-            cursor.execute('INSERT INTO accounts VALUES (NULL, %s, %s, %s)', (username, password, email,))
-            mysql.connection.commit()
-            msg = 'You have successfully registered!'
+            password = generate_password_hash(password)
+            new_user = User(username=username, password=password, email=email)
+            session_query.add(new_user)
+            session_query.commit()
             flash('You have successfully registered! Please log in.', 'success')
             return redirect('/login')
 
