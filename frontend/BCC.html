@@ -3,110 +3,95 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Aderml - AI Dermatology Assistant</title>
+    <title>Basal Cell Carcinoma - Aderml</title>
     <link rel="stylesheet" href="styles/BCC.css" />
   </head>
   <body>
     <header>
       <div class="container">
-        <h1>Aderml</h1>
-        <nav>
-          <ul>
-            <li><a href="main.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="skin.html">SkinTest</a></li>
-            <li><a href="diseases.html">Diseases</a></li>
-            <li><a href="register.html">Log In</a></li>
-            <li><a href="register.html">Sign Up</a></li>
-          </ul>
-        </nav>
+          <h1>Aderml</h1>
+          <nav>
+              <!-- Burger Menu -->
+              <div class="burger-menu" id="burgerMenu">
+                  <div class="line"></div>
+                  <div class="line"></div>
+                  <div class="line"></div>
+              </div>
+              <!-- Navigation Links -->
+              <ul id="navLinks">
+                  <li><a href="main.html">Home</a></li>
+                  <li><a href="about.html">About</a></li>
+                  <li><a href="skin.html">SkinTest</a></li>
+                  <li><a href="diseases.html">Diseases</a></li>
+                  <li id="loginNavItem"><a href="register.html">Log In</a></li>
+                  <li id="signupNavItem"><a href="register.html">Sign Up</a></li>
+                  <li id="usernameNavItem" style="display: none">
+                      Welcome, <span id="usernameDisplay"></span>
+                  </li>
+              </ul>
+          </nav>
       </div>
-    </header>
+  </header>
 
     <main>
-      <section id="home" class="about-section">
-        <div class="about-container">
-          <div class="about-text">
-            <h1>Basal Cell Carcinoma</h1>
-            <h2>
-                Understanding Basal Cell Carcinoma (BCC): Causes, Symptoms
-            </h2>
+      <!-- Hero Section -->
+      <section class="hero">
+        <h2>Basal Cell Carcinoma</h2>
+        <p>Understanding Basal Cell Carcinoma: Causes, Symptoms, and Diagnosis</p>
+      </section>
+
+      <!-- Content Sections -->
+      <section class="content-section">
+        <div class="text-photo">
+          <div class="text-block">
             <h3>What is Basal Cell Carcinoma?</h3>
-
             <p>
-                Basal Cell Carcinoma (BCC) is the most common type of skin cancer, arising from the basal cells in the outer layer of the skin (epidermis). BCC typically develops in areas exposed to the sun, such as the face, neck, and ears, but it can occur anywhere on the body. Although BCC rarely spreads to other parts of the body (metastasizes), it can grow locally and invade surrounding tissues if left untreated.
+              Basal Cell Carcinoma (BCC) is the most common type of skin cancer. It develops from the basal cells of the epidermis, usually in areas exposed to the sun. While BCC rarely spreads to other parts of the body, it can grow locally and damage surrounding tissues if untreated.
             </p>
-            <h3>Causes of Basal Cell Carcinoma</h3>
-<p>BCC is primarily caused by long-term exposure to ultraviolet (UV) radiation from the sun or artificial sources like tanning beds. Other factors that may increase the risk of developing BCC include:</p>
-<ul>
-    <li>
-        <strong>Skin Type:</strong> Individuals with fair skin, light hair, and light eyes are at a higher risk.
-    </li>
-    <li>
-        <strong>Age:</strong> The risk increases with age, as skin becomes more susceptible to damage over time.
-    </li>
-    <li>
-        <strong>Previous Skin Cancer:</strong> Having a history of nonmelanoma skin cancers increases the likelihood of developing BCC.
-    </li>
-    <li>
-        <strong>Family History:</strong> A family history of skin cancer can elevate the risk.
-    </li>
-    <li>
-        <strong>Weakened Immune System:</strong> Individuals with weakened immune systems, such as organ transplant recipients or those with certain diseases, are more vulnerable.
-    </li>
-    <li>
-        <strong>Exposure to Chemicals:</strong> Prolonged exposure to certain chemicals, like arsenic or industrial compounds, can increase the risk.
-    </li>
-</ul>
-
-<h3>Symptoms of Basal Cell Carcinoma</h3>
-<p>BCC can manifest in several forms, and its appearance can vary. Common signs and symptoms include:</p>
-<ul>
-    <li>
-        <strong>Pearly or Waxy Bump:</strong> Often appears as a small, shiny bump that resembles a pearl.
-    </li>
-    <li>
-        <strong>Flat, Flesh-Colored Lesion:</strong> A flat, scaly area that may be similar in color to the surrounding skin.
-    </li>
-    <li>
-        <strong>Red or Brown Patches:</strong> These can be rough or scaly and may bleed or crust over.
-    </li>
-    <li>
-        <strong>Open Sores:</strong> Sores that do not heal or that heal and then return can be a sign of BCC.
-    </li>
-    <li>
-        <strong>Scar-Like Area:</strong> A flat, scar-like area that appears white, yellow, or waxy.
-    </li>
-</ul>
-<p>It is essential to monitor any changes in your skin and consult a healthcare provider if you notice any unusual growths or changes in existing moles or spots.</p>
-
-<h2>Diagnosis of Basal Cell Carcinoma</h2>
-<p>If BCC is suspected, a dermatologist will perform a thorough skin examination and may conduct a biopsy, where a small sample of the suspicious area is removed and examined under a microscope. This helps confirm the diagnosis and determine the appropriate treatment.</p>
-<div class="navigation">
-    <a href="acne.html"><button id="prevBtn" onclick="prevContent()">Acne</button></a>
-    <a href="melanoma.html"><button id="nextBtn" onclick="nextContent()">Melanoma</button></a>
-</div>
-
-            
           </div>
-          <div class="about-image">
-            <img src="styles/images/basal-cell-carc.webp" alt="BCC" />
+          <div class="photo-block">
+            <img src="styles/images/bbc.png" alt="Basal Cell Carcinoma" />
           </div>
         </div>
       </section>
 
-      <section id="cta" class="cta-section">
-        <div class="cta-section">
-          <p>
-            Get personalized skin care advice, AI-based diagnosis, and expert
-            consultation. Please sign in to access all features.
-          </p>
-          <div class="buttons">
-            <button id="loginButton" class="login">Log In</button>
-            <button id="signupButton" class="signup">Sign Up</button>
+      <section class="content-section">
+        <div class="text-photo">
+          <div class="text-block">
+            <h3>Symptoms of Basal Cell Carcinoma</h3>
+            <p>Recognizing symptoms is essential for early diagnosis:</p>
+            <ul>
+              <li><strong>Pearly Bump:</strong> A shiny, pearl-like bump.</li>
+              <li><strong>Flat Lesion:</strong> Flesh-colored or scaly patches.</li>
+              <li><strong>Red Patches:</strong> Often rough, scaly, and may bleed.</li>
+              <li><strong>Open Sores:</strong> Persistent sores that heal and return.</li>
+              <li><strong>Scar-Like Area:</strong> Flat, white, or waxy areas.</li>
+            </ul>
+          </div>
+          <div class="photo-block">
+            <img src="styles/images/basal-cell-carc.webp" alt="Symptoms of Basal Cell Carcinoma" />
           </div>
         </div>
       </section>
+
+      <section class="content-section">
+        <div class="photo-text">
+          <div class="photo-block">
+            <img src="styles/images/BCC.css" alt="Diagnosis of BCC" />
+          </div>
+          <div class="text-block">
+            <h3>Diagnosis of Basal Cell Carcinoma</h3>
+            <p>
+              A dermatologist performs a skin examination and may conduct a biopsy. Early detection and treatment are crucial to prevent complications.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <div class="navigation">
+        <a href="acne.html"><button id="prevBtn">Previous: Acne</button></a>
+        <a href="melanoma.html"><button id="nextBtn">Next: Melanoma</button></a>
+      </div>
     </main>
 
     <footer class="footer">
@@ -118,28 +103,18 @@
       </div>
       <div class="social-icons">
         <a href="#facebook" title="Facebook"
-          ><i
-            ><img
-              class="icon_img"
-              src="styles/images/face.png"
-              alt="Facebook" /></i
-        ></a>
+          ><img class="icon_img" src="styles/images/face.png" alt="Facebook"
+        /></a>
         <a href="#twitter" title="Twitter"
-          ><i
-            ><img
-              class="icon_img"
-              src="styles/images/twit.png"
-              alt="Twitter" /></i
-        ></a>
+          ><img class="icon_img" src="styles/images/twit.png" alt="Twitter"
+        /></a>
         <a href="#instagram" title="Instagram"
-          ><i
-            ><img
-              class="icon_img"
-              src="styles/images/insta.png"
-              alt="Instagram" /></i
-        ></a>
+          ><img class="icon_img" src="styles/images/insta.png" alt="Instagram"
+        /></a>
       </div>
       <p>&copy; 2024 Your Company. All Rights Reserved.</p>
     </footer>
+  </script>
+  <script src="header.js"></script>
   </body>
 </html>

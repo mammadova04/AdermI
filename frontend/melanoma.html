@@ -3,108 +3,114 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Aderml - AI Dermatology Assistant</title>
+    <title>Melanoma - Aderml</title>
     <link rel="stylesheet" href="styles/melanoma.css" />
   </head>
   <body>
     <header>
       <div class="container">
-        <h1>Aderml</h1>
-        <nav>
-          <ul>
-            <li><a href="main.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="skin.html">SkinTest</a></li>
-            <li><a href="diseases.html">Diseases</a></li>
-            <li><a href="register.html">Log In</a></li>
-            <li><a href="register.html">Sign Up</a></li>
-          </ul>
-        </nav>
+          <h1>Aderml</h1>
+          <nav>
+              <!-- Burger Menu -->
+              <div class="burger-menu" id="burgerMenu">
+                  <div class="line"></div>
+                  <div class="line"></div>
+                  <div class="line"></div>
+              </div>
+              <!-- Navigation Links -->
+              <ul id="navLinks">
+                  <li><a href="main.html">Home</a></li>
+                  <li><a href="about.html">About</a></li>
+                  <li><a href="skin.html">SkinTest</a></li>
+                  <li><a href="diseases.html">Diseases</a></li>
+                  <li id="loginNavItem"><a href="register.html">Log In</a></li>
+                  <li id="signupNavItem"><a href="register.html">Sign Up</a></li>
+                  <li id="usernameNavItem" style="display: none">
+                      Welcome, <span id="usernameDisplay"></span>
+                  </li>
+              </ul>
+          </nav>
       </div>
-    </header>
+  </header>
 
     <main>
-      <section id="home" class="about-section">
-        <div class="about-container">
-          <div class="about-text">
-            <h1>Melanoma</h1>
-            <h2>
-                Understanding Melanoma: Causes, Symptoms
-            </h2>
+      <!-- Hero Section -->
+      <section class="hero">
+        <h2>Melanoma</h2>
+        <p>Understanding Melanoma: Causes, Symptoms, and Risk Factors</p>
+      </section>
+
+      <!-- Content Sections -->
+      <section class="content-section">
+        <div class="text-photo">
+          <div class="text-block">
             <h3>What is Melanoma?</h3>
-
             <p>
-                Melanoma is a serious form of skin cancer that develops from melanocytes, the cells responsible for producing the pigment melanin, which gives skin its color. Although melanoma is less common than other skin cancers, it is more aggressive and has a higher potential to spread to other parts of the body (metastasize). Early detection and treatment are crucial for improving outcomes.
+              Melanoma is a serious form of skin cancer that develops from melanocytes, the cells responsible for producing the pigment melanin. It is less common but more aggressive than other skin cancers, with a higher potential to spread to other parts of the body (metastasize). Early detection and treatment are crucial for improving outcomes.
             </p>
+          </div>
+          <div class="photo-block">
+            <img src="styles/images/Melan.jpg" alt="Melanoma" />
+          </div>
+        </div>
+      </section>
+
+      <section class="content-section">
+        <div class="photo-text">
+          <div class="photo-block">
+            <img src="styles/images/melanoma2.avif" alt="Symptoms of Melanoma" />
+          </div>
+          <div class="text-block">
             <h3>Symptoms of Melanoma</h3>
-<p>Melanoma can appear as a new mole or changes in an existing mole. Key signs to watch for include:</p>
-<ul>
-    <li>
-        <strong>Asymmetry:</strong> One half of the mole or spot does not match the other half in size, shape, or color.
-    </li>
-    <li>
-        <strong>Irregular Borders:</strong> Melanomas often have jagged, notched, or blurred edges.
-    </li>
-    <li>
-        <strong>Varied Color:</strong> The color may vary from one area to another and can include shades of brown, black, tan, red, white, or blue.
-    </li>
-    <li>
-        <strong>Diameter:</strong> Melanomas are usually larger than 6 millimeters (about the size of a pencil eraser), but they can be smaller when detected.
-    </li>
-    <li>
-        <strong>Evolving:</strong> Any change in size, shape, color, or elevation of a mole, or any new symptom such as bleeding, itching, or crusting, should be examined by a healthcare professional.
-    </li>
-</ul>
-
-<h3>Risk Factors for Melanoma</h3>
-<p>While anyone can develop melanoma, certain factors increase the risk:</p>
-<ul>
-    <li>
-        <strong>UV Exposure:</strong> Prolonged exposure to ultraviolet (UV) radiation from the sun or tanning beds is a significant risk factor.
-    </li>
-    <li>
-        <strong>Fair Skin:</strong> People with light skin, freckles, and light-colored eyes have a higher risk.
-    </li>
-    <li>
-        <strong>Family History:</strong> A family history of melanoma or other skin cancers increases susceptibility.
-    </li>
-    <li>
-        <strong>Personal History:</strong> Individuals with a personal history of melanoma or other skin cancers are at greater risk.
-    </li>
-    <li>
-        <strong>Moles:</strong> Having many moles (more than 50) or atypical moles (dysplastic nevi) can increase risk.
-    </li>
-    <li>
-        <strong>Immune Suppression:</strong> Individuals with weakened immune systems, such as organ transplant recipients or those with certain autoimmune diseases, are more vulnerable.
-    </li>
-</ul>
-
-<h3>Diagnosis of Melanoma</h3>
-<p>If melanoma is suspected, a dermatologist will perform a thorough examination of the skin and may conduct a biopsy to remove a portion of the mole or spot for laboratory analysis. The biopsy results will confirm the diagnosis and help determine the stage of the cancer, which is crucial for planning treatment.</p>
-<div class="navigation">
-    <a href="BCC.html"><button id="prevBtn" onclick="prevContent()">BCC</button></a>
-    <a href="atopicdermatitis.html"><button id="nextBtn" onclick="nextContent()">Atopic Dermatitis</button></a>
-</div>
-            
-          </div>
-          <div class="about-image">
-            <img src="styles/images/Melan.jpg" alt="BCC" />
+            <p>Melanoma can appear as a new mole or changes in an existing mole. Key signs include:</p>
+            <ul>
+              <li><strong>Asymmetry:</strong> One half of the mole does not match the other.</li>
+              <li><strong>Irregular Borders:</strong> Jagged, notched, or blurred edges.</li>
+              <li><strong>Varied Color:</strong> Multiple colors like brown, black, tan, or even red and blue.</li>
+              <li><strong>Diameter:</strong> Larger than 6mm (pencil eraser size), but can be smaller when detected early.</li>
+              <li><strong>Evolving:</strong> Changes in size, shape, or symptoms like bleeding, itching, or crusting.</li>
+            </ul>
           </div>
         </div>
       </section>
 
-      <section id="cta" class="cta-section">
-        <div class="cta-section">
-          <p>
-            Get personalized skin care advice, AI-based diagnosis, and expert
-            consultation. Please sign in to access all features.
-          </p>
-          <div class="buttons">
-            <button id="loginButton" class="login">Log In</button>
-            <button id="signupButton" class="signup">Sign Up</button>
+      <section class="content-section">
+        <div class="text-photo">
+          <div class="text-block">
+            <h3>Risk Factors for Melanoma</h3>
+            <p>While anyone can develop melanoma, certain factors increase the risk:</p>
+            <ul>
+              <li><strong>UV Exposure:</strong> Prolonged exposure to UV radiation from the sun or tanning beds.</li>
+              <li><strong>Fair Skin:</strong> People with lighter skin, freckles, and light-colored eyes are at higher risk.</li>
+              <li><strong>Family History:</strong> Having a family history of melanoma increases susceptibility.</li>
+              <li><strong>Moles:</strong> Having more than 50 moles or atypical moles (dysplastic nevi).</li>
+              <li><strong>Immune Suppression:</strong> Weak immune systems increase vulnerability.</li>
+            </ul>
+          </div>
+          <div class="photo-block">
+            <img src="styles/images/melanoma.png" alt="Risk Factors for Melanoma" />
           </div>
         </div>
       </section>
+
+      <section class="content-section">
+        <div class="photo-text">
+          <div class="photo-block">
+            <img src="styles/images/melanoma.webp" alt="Diagnosis of Melanoma" />
+          </div>
+          <div class="text-block">
+            <h3>Diagnosis of Melanoma</h3>
+            <p>
+              If melanoma is suspected, a dermatologist will perform a skin examination and may conduct a biopsy to confirm the diagnosis. The biopsy helps determine the cancer's stage, which is crucial for planning treatment.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <div class="navigation">
+        <a href="BCC.html"><button id="prevBtn">Previous: BCC</button></a>
+        <a href="atopicdermatitis.html"><button id="nextBtn">Next: Atopic Dermatitis</button></a>
+      </div>
     </main>
 
     <footer class="footer">
@@ -116,28 +122,18 @@
       </div>
       <div class="social-icons">
         <a href="#facebook" title="Facebook"
-          ><i
-            ><img
-              class="icon_img"
-              src="styles/images/face.png"
-              alt="Facebook" /></i
-        ></a>
+          ><img class="icon_img" src="styles/images/face.png" alt="Facebook"
+        /></a>
         <a href="#twitter" title="Twitter"
-          ><i
-            ><img
-              class="icon_img"
-              src="styles/images/twit.png"
-              alt="Twitter" /></i
-        ></a>
+          ><img class="icon_img" src="styles/images/twit.png" alt="Twitter"
+        /></a>
         <a href="#instagram" title="Instagram"
-          ><i
-            ><img
-              class="icon_img"
-              src="styles/images/insta.png"
-              alt="Instagram" /></i
-        ></a>
+          ><img class="icon_img" src="styles/images/insta.png" alt="Instagram"
+        /></a>
       </div>
       <p>&copy; 2024 Your Company. All Rights Reserved.</p>
     </footer>
+  </script>
+  <script src="header.js"></script>
   </body>
 </html>
