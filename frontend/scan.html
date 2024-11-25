@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Skin Photo</title>
+    <link rel="stylesheet" href="styles/scan.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <h1>Aderml</h1>
+            <nav>
+                <!-- Burger Menu -->
+                <div class="burger-menu" id="burgerMenu">
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                </div>
+                <!-- Navigation Links -->
+                <ul id="navLinks">
+                    <li><a href="main.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="skin.html">SkinTest</a></li>
+                    <li><a href="diseases.html">Diseases</a></li>
+                    <li id="loginNavItem"><a href="register.html">Log In</a></li>
+                    <li id="signupNavItem"><a href="register.html">Sign Up</a></li>
+                    <li id="usernameNavItem" style="display: none">
+                        Welcome, <span id="usernameDisplay"></span>
+                        <a href="#" id="logoutButton" style="margin-left: 10px;">Logout</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <div class="container">
+            <header class="header">
+                <h1>Upload Skin Photo</h1>
+                <p>Upload a clear photo of your skin to receive AI-driven insights and recommendations.</p>
+            </header>
+
+            <div class="upload-section">
+                <label for="fileInput" class="custom-file-input">Choose a photo</label>
+                <input type="file" id="fileInput">
+                <button id="uploadButton" class="primary-btn">Upload</button>
+            </div>
+
+            <div id="responseCard" class="response-card">
+                <h2 id="responseTitle" class="response-title">Predicted Skin Type</h2>
+                <p id="responseMessage">Processing your photo...</p>
+                <div id="questionsContainer"></div>
+            </div>
+        </div>
+    </main>
+    <footer class="footer">
+        <div class="footer-links">
+            <a href="main.html">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="#services">Services</a>
+        </div>
+        <div class="social-icons">
+            <a href="#facebook" title="Facebook"><img class="icon_img" src="styles/images/face.png"></a>
+            <a href="#twitter" title="Twitter"><img class="icon_img" src="styles/images/twit.png"></a>
+            <a href="#instagram" title="Instagram"><img class="icon_img" src="styles/images/insta.png"></a>
+        </div>
+        <p>&copy; 2024 Your Company. All Rights Reserved.</p>
+    </footer>
+    <script>
+        const burgerMenu = document.getElementById("burgerMenu");
+        const navLinks = document.getElementById("navLinks");
+
+        burgerMenu.addEventListener("click", () => {
+            navLinks.classList.toggle("show");
+        });
+    </script>
+    <script src="header.js"></script>
+    <script src="scan.js"></script>
+</body>
+</html>

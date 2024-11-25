@@ -1,0 +1,284 @@
+@import url('https://fonts.googleapis.com/css2?family=Jura:wght@300..700&display=swap');
+
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Jura", sans-serif;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header Styling */
+header {
+  padding: 20px 0px;
+  font-size: 20px;
+  width: 100%;
+  position: relative;
+  z-index: 10;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+h1 {
+  font-size: 24px;
+  color: #333;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+  color: #B39F84;
+}
+
+/* Burger Menu */
+.burger-menu {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 100;
+}
+
+.burger-menu .line {
+  width: 25px;
+  height: 3px;
+  background-color: #333;
+  border-radius: 2px;
+}
+
+nav ul {
+  display: flex;
+}
+
+/* Burger Sidebar */
+nav ul.show {
+    position: fixed;
+    top: 0;
+    right: 0;
+    background: #ffffff; /* Solid white background */
+    width: 250px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding-top: 50px;
+    gap: 20px;
+    box-shadow: -4px 0 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000; /* Ensure it is above the main content */
+  }
+
+nav ul.show li {
+  text-align: left;
+  padding-left: 20px;
+}
+
+
+/* Main Content Styling */
+
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    position: relative; /* Ensure it doesn't overlap */
+    z-index: 1; /* Lower than the sidebar */
+  }
+
+main .container {
+    max-width: 600px;
+    margin: 40px auto;
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.header {
+    text-align: center;
+}
+
+.header h1 {
+    font-size: 28px;
+    color: #333;
+}
+
+.header p {
+    font-size: 16px;
+    color: #666;
+    margin-top: 10px;
+}
+
+/* Upload Section */
+.upload-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    text-align: center;
+}
+
+.custom-file-input {
+    font-size: 16px;
+    font-weight: bold;
+    color: #00796b;
+    cursor: pointer;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.primary-btn {
+    background-color: #00796b;
+    color: white;
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 150px;
+    text-align: center;
+}
+
+.primary-btn:hover {
+    background-color: #004d40;
+    transform: translateY(-2px);
+}
+
+/* Response Card */
+.response-card {
+    display: none; /* Hidden by default */
+    background-color: #f9f2e7;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.response-title {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+#responseMessage {
+    font-size: 16px;
+    color: #00796b;
+}
+
+#questionsContainer {
+    margin-top: 15px;
+}
+
+
+.footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    width: 100%;
+}
+
+.footer a {
+    color: #ffffff;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+.footer a:hover {
+    color: #B39F84;
+}
+
+.footer .social-icons {
+    margin: 10px 0;
+}
+
+.footer .social-icons img {
+    width: 30px;
+    margin: 0 5px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+      .burger-menu {
+        display: flex;
+    }
+
+    nav ul {
+        display: none;
+    }
+
+    nav ul.show {
+        display: flex;
+    }
+
+    nav ul li {
+        text-align: center;
+        padding: 10px 0;
+    }
+
+    nav ul li a {
+        font-size: 1.2rem;
+        font-weight: bold;
+    }
+
+    .burger-menu {
+        display: flex;
+    }
+
+
+    main .container {
+        padding: 15px;
+    }
+
+    .header h1 {
+        font-size: 24px;
+    }
+
+    .primary-btn {
+        font-size: 14px;
+        padding: 10px 15px;
+        width: 120px;
+    }
+
+    .response-card {
+        padding: 15px;
+    }
+
+    footer {
+        padding: 10px 0;
+    }
+}
